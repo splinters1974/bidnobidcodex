@@ -3,8 +3,7 @@ import path from "node:path";
 import { getDeployStore, getStore } from "@netlify/blobs";
 
 const moduleDir = path.dirname(new URL(import.meta.url).pathname);
-const rootDir = path.resolve(moduleDir, "../../..");
-const defaultConfigPath = path.join(rootDir, "data/default-config.json");
+const defaultConfigPath = path.join(moduleDir, "default-config.json");
 
 const CONFIG_KEY = "config/current";
 const ASSESSMENT_PREFIX = "assessments/";
