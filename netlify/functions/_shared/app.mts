@@ -1,11 +1,9 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
 import { getDeployStore, getStore } from "@netlify/blobs";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const rootDir = path.resolve(__dirname, "../../..");
+const moduleDir = path.dirname(new URL(import.meta.url).pathname);
+const rootDir = path.resolve(moduleDir, "../../..");
 const defaultConfigPath = path.join(rootDir, "data/default-config.json");
 
 const CONFIG_KEY = "config/current";
