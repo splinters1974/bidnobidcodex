@@ -273,11 +273,12 @@ textarea {
   border-radius: 18px;
   overflow: hidden;
   background: white;
+  min-width: 0;
 }
 
 .score-table-row {
   display: grid;
-  grid-template-columns: minmax(190px, 1.35fr) 72px minmax(320px, 1.85fr) minmax(360px, 2.3fr);
+  grid-template-columns: minmax(0, 1.15fr) 64px minmax(0, 1.45fr) minmax(0, 2.4fr);
 }
 
 .score-table-head {
@@ -311,7 +312,7 @@ textarea {
 
 .question-row {
   display: grid;
-  grid-template-columns: minmax(190px, 1.35fr) 72px minmax(320px, 1.85fr) minmax(360px, 2.3fr);
+  grid-template-columns: minmax(0, 1.15fr) 64px minmax(0, 1.45fr) minmax(0, 2.4fr);
   border-top: 1px solid var(--line);
   margin: 0;
   padding: 0;
@@ -349,6 +350,7 @@ textarea {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 10px;
+  min-width: 0;
 }
 
 .score-cell {
@@ -416,6 +418,10 @@ textarea {
   width: 100%;
   max-width: 100%;
   background: #fffdf9;
+  overflow-x: hidden;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  white-space: pre-wrap;
 }
 
 .metric {
