@@ -301,7 +301,6 @@ function renderMetadataField(field) {
 
 function renderSectionBlock(section) {
   const questions = section.questions.map(question => renderQuestion(question)).join("");
-  const headers = ["1", "2", "3", "4", "5"];
   return `
     <div class="section-block">
       <div class="section-heading">
@@ -310,18 +309,7 @@ function renderSectionBlock(section) {
           <h3>${escapeHtml(section.name)}</h3>
         </div>
       </div>
-      <div class="score-table">
-        <div class="score-table-head score-table-row">
-          <div class="score-criteria-head">Criteria</div>
-          <div class="score-weight-head">Weight</div>
-          <div class="score-options-head">
-            <span>Score Guide</span>
-            <div class="score-option-legend">
-              ${headers.map(label => `<span>${label}</span>`).join("")}
-            </div>
-          </div>
-          <div class="score-comments-head">Comments</div>
-        </div>
+      <div class="question-list">
         ${questions}
       </div>
     </div>
@@ -359,15 +347,30 @@ function renderQuestion(question) {
   return `
     <fieldset class="question-row">
       <div class="question-main">
+        <span class="question-block-label">Criterion</span>
         <legend>${escapeHtml(question.text)}</legend>
       </div>
       <div class="question-weight">
+        <span class="question-block-label">Weight</span>
         <span>${formatWeightPercentage(question.weight)}</span>
       </div>
-      <div class="score-cells">
-        ${scoreGuide}
+      <div class="question-score-panel">
+        <div class="question-score-header">
+          <span class="question-block-label">Select a score</span>
+          <div class="score-option-legend">
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+          </div>
+        </div>
+        <div class="score-cells">
+          ${scoreGuide}
+        </div>
       </div>
       <div class="question-comment">
+        <span class="question-block-label">Comments</span>
         <textarea
           id="comment-${question.id}"
           data-comment="${question.id}"
